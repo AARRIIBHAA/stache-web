@@ -1,2 +1,2 @@
-# spendly-web
-Spendly web assets
+# stache-web
+Stache web assets
