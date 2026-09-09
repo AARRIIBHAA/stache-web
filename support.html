@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Support — Stache</title>
 <meta name="description" content="Get help with Stache — subscriptions, your account, and receipt scanning." />
+<meta name="theme-color" content="#0d0d16" />
 <link rel="icon" href="./logo-icon.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,32 +13,19 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
 
 <style>
-  :root {
-    --bg: #F2F2F7;
-    --card: #FFFFFF;
+    :root {
+    color-scheme: dark;
+    --bg: #0d0d16;
+    --card: #17171f;
     --accent: #FF6B35;
-    --accent-text: #BF3F17;
-    --accent-soft: rgba(255, 107, 53, 0.08);
-    --text: #0D0D0D;
-    --text-secondary: #3C3C43;
-    --text-muted: #8E8E93;
-    --border: #E5E5EA;
-    --nav-bg: rgba(242, 242, 247, 0.75);
+    --accent-text: #FF6B35;
+    --text: #F5F3EC;
+    --text-secondary: #b9b9c6;
+    --text-muted: #8D8D9B;
+    --border: rgba(245, 243, 236, 0.08);
+    --nav-bg: rgba(13, 13, 22, 0.82);
     --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'DM Mono', 'SF Mono', Consolas, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0d0d16;
-      --card: #1a1a2e;
-      --accent-text: #FF6B35;
-      --accent-soft: rgba(255, 107, 53, 0.14);
-      --text: #FFFFFF;
-      --text-secondary: #9898b8;
-      --text-muted: #55556f;
-      --border: #24243a;
-      --nav-bg: rgba(13, 13, 22, 0.72);
-    }
   }
 
   * { box-sizing: border-box; }
@@ -175,10 +163,7 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <a href="./index.html" aria-label="Stache home">
-        <picture>
-          <source srcset="./logo-full-dark.png" media="(prefers-color-scheme: dark)" />
-          <img class="nav-logo" src="./logo-full.png" alt="Stache" />
-        </picture>
+        <img class="nav-logo" src="./logo-full-dark.png" alt="Stache" />
       </a>
     </div>
   </header>
