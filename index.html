@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Stache — one clean ledger for every rand you spend</title>
+<title>Stache</title>
 <meta name="description" content="Stache logs every rand you spend, across every bank and card you use. Snap a receipt or type it in ten seconds — one clean ledger, no more guessing where it all went. Built for South Africa." />
 <link rel="canonical" href="https://stache.co.za/" />
 <link rel="icon" href="./logo-icon.png" />
@@ -143,20 +143,23 @@
   }
   .nav-inner { display: flex; align-items: center; gap: 34px; height: 78px; }
   .nav-logo picture, .foot-logo picture { display: block; }
-  .nav-logo img { height: 26px; width: auto; display: block; }
+  .nav-logo img { height: 34px; width: auto; display: block; }
   .nav-logo-mark { display: none; }
-  .nav-logo-mark img { height: 28px; width: 28px; display: block; }
+  .nav-logo-mark img { height: 34px; width: 34px; display: block; }
   .nav-links { display: flex; gap: 32px; margin-left: auto; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 15px; transition: color .15s ease; }
   .nav-links a:hover { color: var(--text); }
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px;
     border-radius: var(--r-pill); font-family: var(--sans); font-size: 15px; font-weight: 500;
     text-decoration: none; padding: 12px 24px; border: 0; cursor: pointer;
     transition: transform .12s ease, opacity .15s ease, background .15s ease;
   }
   .btn-accent { background: var(--accent); color: var(--on-accent); box-shadow: var(--e2); }
+  .btn-mark { gap: 9px; padding-left: 16px; }
+  .btn-mark img { height: 20px; width: 20px; display: block; filter: brightness(0); }
   .btn-accent:hover { opacity: .92; }
   .btn-quiet { background: var(--surface); color: var(--text); box-shadow: var(--e1); }
   .btn-quiet:hover { background: var(--surface-2); }
@@ -167,6 +170,7 @@
   .hero { padding: var(--hero-top) 0 var(--hero-bottom); }
   .hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 84px; align-items: center; }
   .hero h1 { font-size: clamp(42px, 5.6vw, 72px); letter-spacing: -0.035em; }
+  .h1-accent { display: block; color: var(--accent-text); }
   .hero-sub { color: var(--muted); font-size: 20px; line-height: 1.6; margin-top: 24px; max-width: 50ch; }
   .hero-actions { display: flex; align-items: center; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
   .hero-note { color: var(--muted); font-size: 14px; margin-top: 18px; }
@@ -178,7 +182,7 @@
     box-shadow: var(--e4), var(--glow), 0 0 0 1px var(--ring);
   }
   .device img { display: block; width: 100%; height: auto; border-radius: 37px; }
-  .shot-frame { width: 232px; }
+  .shot-frame { width: 288px; }
   .shot-frame img { border-radius: 34px; }
   /* Cropped detail shots float on the plain background — shadow, never an outline */
   .shot-card { max-width: 430px; border-radius: var(--r-card); overflow: hidden; box-shadow: var(--e3); }
@@ -254,7 +258,7 @@
   /* ───────── Footer ───────── */
   footer { border-top: 1px solid var(--hair); padding: 56px 0 40px; }
   .foot-grid { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr; gap: 44px; }
-  .foot-logo img { height: 27px; width: auto; display: block; }
+  .foot-logo img { height: 34px; width: auto; display: block; }
   .foot-tag { color: var(--muted); font-size: 14px; margin-top: 18px; max-width: 28ch; }
   .foot-col h4 { margin: 0 0 16px; font-size: 14px; font-weight: 500; }
   .foot-col a { display: block; color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 0; transition: color .15s ease; }
@@ -314,7 +318,7 @@
       <a href="#faq">FAQ</a>
       <a href="#about">About</a>
     </div>
-    <a class="btn btn-accent" href="#pricing">Get Stache</a>
+    <a class="btn btn-accent btn-mark" href="#pricing"><img src="./logo-icon.png" alt="" aria-hidden="true" />Get Stache</a>
   </div>
 </nav>
 
@@ -322,7 +326,7 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <h1>Your receipts have been living in your jacket pocket. Not anymore.</h1>
+      <h1>Your receipts have been living in your jacket pocket. <span class="h1-accent">Not anymore.</span></h1>
       <p class="hero-sub">Stache logs every rand you spend, across every bank and card you use. Snap a receipt or type it in ten seconds — one clean ledger, no more guessing where it all went.</p>
       <div class="hero-actions">
         <a class="btn btn-accent btn-lg" href="#pricing">Get Stache</a>
@@ -503,7 +507,7 @@
         <source srcset="./logo-full-dark.png" media="(prefers-color-scheme: dark)" />
         <img src="./logo-full.png" alt="Stache" />
       </picture></div>
-        <p class="foot-tag">One clean ledger for every rand you spend.</p>
+        <p class="foot-tag">No receipts. No stress.</p>
       </div>
       <div class="foot-col">
         <h4>Product</h4>
