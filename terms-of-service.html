@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Terms of Service — Stache</title>
 <meta name="description" content="The terms that govern your use of Stache." />
-<meta name="theme-color" content="#0d0d16" />
+<meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0d0d16" media="(prefers-color-scheme: dark)" />
 <link rel="icon" href="./logo-icon.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,18 +15,30 @@
 
 <style>
     :root {
-    color-scheme: dark;
-    --bg: #0d0d16;
-    --card: #17171f;
+    color-scheme: light dark;
+    --bg: #F2F2F7;
+    --card: #FFFFFF;
     --accent: #FF6B35;
-    --accent-text: #FF6B35;
-    --text: #F5F3EC;
-    --text-secondary: #b9b9c6;
-    --text-muted: #8D8D9B;
-    --border: rgba(245, 243, 236, 0.08);
-    --nav-bg: rgba(13, 13, 22, 0.82);
+    --accent-text: #ce3700;
+    --text: #0D0D0D;
+    --text-secondary: #3C3C43;
+    --text-muted: #6e6e73;
+    --border: rgba(13, 13, 13, .10);
+    --nav-bg: rgba(242, 242, 247, .82);
     --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'DM Mono', 'SF Mono', Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d0d16;
+      --card: #17171f;
+      --accent-text: #FF6B35;
+      --text: #F5F3EC;
+      --text-secondary: #b9b9c6;
+      --text-muted: #8D8D9B;
+      --border: rgba(245, 243, 236, .08);
+      --nav-bg: rgba(13, 13, 22, .82);
+    }
   }
 
   * { box-sizing: border-box; }
@@ -141,7 +154,10 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <a href="./index.html" aria-label="Stache home">
-        <img class="nav-logo" src="./logo-full-dark.png" alt="Stache" />
+        <picture>
+          <source srcset="./logo-full-dark.png" media="(prefers-color-scheme: dark)" />
+          <img class="nav-logo" src="./logo-full.png" alt="Stache" />
+        </picture>
       </a>
     </div>
   </header>
