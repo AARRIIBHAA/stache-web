@@ -1,0 +1,3 @@
+# Keep agent tooling out of the graph
+.claude/
+CLAUDE.md
