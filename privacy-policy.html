@@ -237,7 +237,7 @@
     <div class="legal">
       <header class="doc-head">
         <h1 class="page-title">Privacy Policy</h1>
-        <p class="updated">Last updated: 9 September 2026</p>
+        <p class="updated">Last updated: 23 November 2026</p>
       </header>
       <div class="doc-body">
 
@@ -260,6 +260,7 @@
         <li>Whether your subscription is active</li>
         <li>Counts of how many receipt scans, AI insights, and statements you have used, so free-tier limits can be enforced</li>
         <li>Anonymous product analytics events (see <a href="#analytics">Analytics</a> below)</li>
+        <li>Technical crash and error reports (see <a href="#crash-reports">Crash and error reports</a> below)</li>
       </ul>
 
       <h2>What stays on your device</h2>
@@ -277,6 +278,8 @@
       <p><strong>Google Gemini API</strong> — when you scan a receipt, the image is sent to Google's Gemini API to extract the shop, total, date and category. When you request an AI insight, a summary of your spending is sent: your total spent, your budget, and per-category totals in rands. Individual transactions, merchant names and notes are not included in insight requests. Stache uses the free tier of the Gemini API, which means that, under Google's standard terms for unpaid API services, Google may use data submitted to the API to improve its products and services.</p>
 
       <p id="analytics"><strong>PostHog</strong> — we use PostHog for product analytics, to understand which features are used and where people get stuck. PostHog processes this data on servers in the United States. The only identifier attached to an event is your Stache account ID: no name, email address, merchant, note text or monetary amount is ever included. Events record actions and categories only, such as that an expense was added and which category it used, that a paywall was shown, or that a purchase completed. Session recording is disabled, and automatic capture of taps and screen views is disabled.</p>
+
+      <p id="crash-reports"><strong>Sentry</strong> (Functional Software, Inc.) — we use Sentry for crash and error reporting. When the app crashes or hits an error, we send a technical report so we can find and fix the bug: your device model, iOS version and app version, the error itself and where in the code it happened, and a random account ID. Reports do not include your expenses, amounts, merchants, receipt photos, name or email address, and we have turned off IP address storage. Sentry stores this data in its EU region.</p>
 
       <p><strong>RevenueCat</strong> — we use RevenueCat to manage Stache Premium subscriptions. RevenueCat receives your purchase and subscription status, identified only by your Stache account ID. We do not send your name or email address to RevenueCat. Your payment card details are handled entirely by Apple and are never shared with RevenueCat or with us.</p>
 
@@ -296,7 +299,7 @@
 
       <h2>POPIA compliance</h2>
       <p>Stache is committed to complying with the Protection of Personal Information Act (POPIA) of South Africa. For the purposes of POPIA, Stache is the "responsible party" for your personal information. We process personal information lawfully, only for the purposes described in this policy, and take reasonable technical and organisational measures to keep it secure. You can access, correct, or delete your information at any time. Complaints can be directed to South Africa's Information Regulator.</p>
-      <p>Because Gemini and PostHog process data outside South Africa, your personal information is transferred abroad as described above. We rely on these providers' own contractual and technical safeguards for those transfers.</p>
+      <p>Because Gemini, PostHog and Sentry process data outside South Africa, your personal information is transferred abroad as described above. We rely on these providers' own contractual and technical safeguards for those transfers.</p>
 
       <h2>Contact us</h2>
       <p>If you have any questions about this Privacy Policy or how your data is handled, contact us at <a href="mailto:hello@stache.co.za">hello@stache.co.za</a>.</p>
