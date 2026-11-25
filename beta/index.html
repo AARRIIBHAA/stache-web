@@ -233,13 +233,24 @@
     .device { width: 320px; padding: 10px; }
     .device img { border-radius: 34px; }
 
-    .join { padding: 16px 0 80px; }
-    .join-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
-    /* Desktop visitors are the ones who need the hint, so it leads the section here */
-    .lead { display: block; }
-    .flow .hint { display: none; }
+    /* Steps become one horizontal panel: three steps read left to right, joined by the dotted rail */
+    .join { padding: 32px 0 96px; }
     h2 { font-size: 36px; }
-    .flow { margin-top: 0; padding: 32px; }
+    /* Desktop visitors are the ones who need the hint, so it becomes the section subtitle here */
+    .lead { display: block; margin-top: 8px; max-width: none; }
+    .flow .hint { display: none; }
+    .flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 24px; padding: 32px 0; }
+    .flow li { display: flex; flex-direction: column; padding: 0 32px; }
+    .flow li + li { margin-top: 0; }
+    .flow li > div { display: flex; flex-direction: column; align-items: flex-start; flex: 1; }
+    .num { margin-bottom: 16px; }
+    .flow h3 { margin-top: 0; }
+    .flow li:not(:last-child)::before {
+      left: 72px; right: -20px; top: 13px; bottom: auto;
+      border-left: 0; border-top: 1.5px dotted var(--leader);
+    }
+    .flow .link, .flow .btn { margin-top: auto; }
+    .flow li > div > p:not(.hint) { margin-bottom: 20px; }
 
     .foot-grid { grid-template-columns: 1.7fr 1fr 1fr 1fr; gap: 40px; }
   }
@@ -323,7 +334,7 @@ posthog.init('phc_Bkx5zXfyRfYHWXsUU7VvjPZviLVkZ6yMBNFvFYRPK2xP', {
 <!-- Steps -->
 <section id="how" class="join">
   <div class="wrap join-grid">
-    <div>
+    <div class="join-head">
       <h2>Three steps to get in</h2>
       <p class="lead">On a computer? Open this page on your iPhone.</p>
     </div>
