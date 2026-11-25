@@ -26,9 +26,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
+  /* Mobile-first at 390px: most visitors arrive from TikTok on an iPhone. */
   :root {
     color-scheme: light dark;
 
@@ -39,8 +40,8 @@
     --muted:       #44444c;   /* secondary text, 8.6:1 on bg */
     --accent:      #FF6B35;   /* fill only on light */
     --accent-text: #ce3700;   /* 4.51:1 on bg */
-    --accent-soft: rgba(255, 107, 53, .12);
     --hair:        rgba(13, 13, 13, .10);
+    --leader:      rgba(13, 13, 13, .38);
     --nav-bg:      rgba(242, 242, 247, .82);
     --ring:        rgba(13, 13, 13, .08);
     --on-accent:   #14140f;   /* ink on coral, 6.5:1 */
@@ -49,21 +50,18 @@
     --device-shadow: 0 1px 2px rgba(13,13,13,.08), 0 10px 20px -6px rgba(13,13,13,.14), 0 40px 64px -24px rgba(13,13,13,.32);
 
     --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --mono: 'DM Mono', ui-monospace, 'SF Mono', Consolas, monospace;
 
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
     --t-fast: 150ms;
     --t-enter: 400ms;
 
-    --r-device: 46px;
-    --r-tile:   28px;
+    --r-device: 44px;
+    --r-panel:  20px;
     --r-pill:   999px;
-    --tile-pad: 40px;
 
-    --section-y: 32px;
-    --nav-h:     72px;
-    --maxw:      1180px;
-    --gutter:    28px;
+    --nav-h:  64px;
+    --maxw:   1180px;
+    --gutter: 20px;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -74,8 +72,8 @@
       --text:        #F5F3EC;
       --muted:       #bdbbc8;   /* 10.6:1 on bg */
       --accent-text: #FF6B35;
-      --accent-soft: rgba(255, 107, 53, .14);
       --hair:        rgba(245, 243, 236, .08);
+      --leader:      rgba(245, 243, 236, .34);
       --nav-bg:      rgba(13, 13, 22, .72);
       --ring:        rgba(245, 243, 236, .09);
       --e1: none;
@@ -84,29 +82,24 @@
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
   body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
     font-family: var(--sans);
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: 17px;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
-  section { padding: var(--section-y) 0; }
 
   h1, h2, h3 { margin: 0; font-weight: 500; text-wrap: balance; }
-  h1 { font-size: clamp(46px, 6.2vw, 80px); line-height: 1.02; letter-spacing: -0.035em; }
-  h2 { font-size: clamp(36px, 4.6vw, 56px); line-height: 1.06; letter-spacing: -0.03em; }
-  h3 { font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; }
   p  { margin: 0; text-wrap: pretty; }
-  a  { color: inherit; }
-  .sub { color: var(--muted); font-size: 22px; line-height: 1.45; }
+  a  { color: inherit; -webkit-tap-highlight-color: transparent; }
 
   :focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; border-radius: 6px; }
   .btn-accent:focus-visible { outline-color: var(--text); }
@@ -118,124 +111,149 @@
     backdrop-filter: saturate(160%) blur(16px);
     -webkit-backdrop-filter: saturate(160%) blur(16px);
   }
-  .nav-inner { display: flex; align-items: center; gap: 32px; height: var(--nav-h); }
+  .nav-inner { display: flex; align-items: center; gap: 16px; height: var(--nav-h); }
+  .nav-logo, .nav-links { display: none; }
   .nav-logo picture, .foot-logo picture { display: block; }
   .nav-logo img { height: 32px; width: auto; display: block; }
-  .nav-logo-mark { display: none; }
   .nav-logo-mark img { height: 32px; width: 32px; display: block; }
-  .nav-links { display: flex; gap: 32px; margin-left: auto; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 16px; transition: color var(--t-fast) var(--ease); }
   .nav-links a:hover { color: var(--text); }
+  .nav-inner .btn { margin-left: auto; }
 
+  /* ───────── Buttons: one primary (coral), one quiet ───────── */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    border-radius: var(--r-pill); font-family: var(--sans); font-size: 16px; font-weight: 500; line-height: 1.5;
-    text-decoration: none; padding: 12px 24px; border: 0; cursor: pointer;
-    transition: transform 120ms var(--ease), opacity var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
+    min-height: 44px; padding: 0 24px; border: 0; border-radius: var(--r-pill);
+    font-family: var(--sans); font-size: 16px; font-weight: 500; line-height: 1;
+    text-decoration: none; cursor: pointer;
+    transition: transform 100ms var(--ease), opacity var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
   }
+  .btn:active { transform: scale(0.97); }   /* feedback on press, not on release */
   .btn-accent { background: var(--accent); color: var(--on-accent); }
-  .btn-mark { padding: 8px 20px 8px 12px; }
-  .btn-mark img { height: 20px; width: 20px; display: block; }
   .btn-accent:hover { opacity: .92; }
   .btn-quiet { background: var(--surface); color: var(--text); box-shadow: var(--e1), 0 0 0 1px var(--ring); }
   .btn-quiet:hover { background: var(--surface-2); }
-  .btn:active { transform: scale(0.97); }
-  .btn-lg { padding: 16px 32px; font-size: 18px; }
-  .btn-xl { padding: 20px 44px; font-size: 20px; }
+  .btn-mark { min-height: 36px; padding: 0 16px 0 10px; font-size: 15px; }
+  .btn-mark img { height: 20px; width: 20px; display: block; }
+  .btn-lg { min-height: 52px; font-size: 18px; width: 100%; }
 
   /* ───────── Hero ───────── */
-  .hero { padding: 32px 0; }
-  .hero-grid { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: center; }
-  .eyebrow { display: inline-block; font-family: var(--mono); font-size: 14px; letter-spacing: .04em; color: var(--accent-text);
-    background: var(--accent-soft); padding: 4px 12px; border-radius: var(--r-pill); margin-bottom: 20px; }
-  .hero .sub { margin-top: 24px; max-width: 30ch; }
-  .hero-actions { margin-top: 32px; }
-  .hero-note { color: var(--muted); font-size: 16px; margin-top: 16px; }
+  .hero { padding-top: 24px; }
+  .kicker { font-size: 15px; line-height: 20px; font-weight: 500; color: var(--accent-text); margin-bottom: 12px; }
+  h1 { font-size: 40px; line-height: 1.04; letter-spacing: -0.03em; }
+  .sub { color: var(--muted); font-size: 18px; line-height: 26px; margin-top: 12px; max-width: 34ch; }
+  .cta { margin-top: 24px; }
+  .note { color: var(--muted); font-size: 15px; line-height: 20px; margin-top: 12px; text-align: center; }
 
-  .hero-grid > div:first-child > *, .hero .device { animation: rise var(--t-enter) var(--ease) both; }
-  .hero-grid > div:first-child > :nth-child(2) { animation-delay: 60ms; }
-  .hero-grid > div:first-child > :nth-child(3) { animation-delay: 120ms; }
-  .hero-grid > div:first-child > :nth-child(4) { animation-delay: 180ms; }
-  .hero-grid > div:first-child > :nth-child(5) { animation-delay: 240ms; }
-  .hero .device { animation-delay: 120ms; margin: 0 0 0 auto; }
-  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .hero-copy > * { animation: rise var(--t-enter) var(--ease) both; }
+  .hero-copy > :nth-child(2) { animation-delay: 40ms; }
+  .hero-copy > :nth-child(3) { animation-delay: 80ms; }
+  .hero-copy > :nth-child(4) { animation-delay: 120ms; }
+  .hero-copy > :nth-child(5) { animation-delay: 160ms; }
+  .shot { animation: fade var(--t-enter) var(--ease) 120ms both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
   @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
+  /* The real home screen, cropped and faded into the page so it never ends on a hard edge */
+  .shot {
+    height: 420px; margin-top: 32px; padding-top: 4px; overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent);
+            mask-image: linear-gradient(to bottom, #000 68%, transparent);
+  }
   .device {
-    position: relative; width: 360px; margin: 0 auto;
-    border-radius: var(--r-device); background: #08080e; padding: 10px;
+    width: 280px; margin: 0 auto;
+    border-radius: var(--r-device); background: #08080e; padding: 9px;
     box-shadow: var(--device-shadow), 0 0 0 1px var(--ring);
   }
-  .device img { display: block; width: 100%; height: auto; border-radius: 36px; }
+  .device img { display: block; width: 100%; height: auto; border-radius: 35px; }
 
-  /* ───────── Steps ───────── */
-  .steps { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .step {
-    display: flex; flex-direction: column;
-    background: var(--surface); border-radius: var(--r-tile); padding: var(--tile-pad);
-    box-shadow: var(--e1), 0 0 0 1px var(--ring);
+  /* ───────── Steps: one guided flow on one surface ───────── */
+  .join { padding: 16px 0 56px; }
+  .lead { display: none; color: var(--muted); font-size: 18px; line-height: 26px; margin-top: 12px; max-width: 30ch; }
+  h2 { font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; }
+  .flow {
+    list-style: none; margin: 20px 0 0; padding: 24px 20px;
+    background: var(--surface); border-radius: var(--r-panel); box-shadow: var(--e1), 0 0 0 1px var(--ring);
   }
-  .step-n {
-    width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 20px;
-    font-family: var(--mono); font-size: 17px; font-weight: 500; color: var(--accent-text); background: var(--accent-soft);
+  .flow li { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); column-gap: 16px; }
+  .flow li + li { margin-top: 28px; }
+  /* Signature: the dotted till-slip leader from the homepage, joining the steps */
+  .flow li:not(:last-child)::before {
+    content: ''; position: absolute; left: 13px; top: 36px; bottom: -20px;
+    border-left: 1.5px dotted var(--leader);
   }
-  .step h3 { margin-bottom: 8px; }
-  .step p { color: var(--muted); font-size: 17px; line-height: 1.5; }
-  .step .btn { align-self: flex-start; margin-top: auto; }
-  .step p + .btn { margin-top: 24px; }
-  /* A quiet button on a surface card needs the raised tone, or it disappears in dark mode */
-  .step .btn-quiet { background: var(--surface-2); box-shadow: none; }
-  .step .btn-quiet:hover { background: var(--hair); }
-  .step-hint { font-size: 15px !important; margin-top: 12px; }
+  .num {
+    width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--surface-2); font-size: 14px; font-weight: 500; line-height: 1;
+  }
+  .flow h3 { font-size: 18px; line-height: 24px; letter-spacing: -0.01em; margin-top: 2px; }
+  .flow p { color: var(--muted); font-size: 16px; line-height: 24px; margin-top: 4px; }
+  .flow .btn { margin-top: 16px; width: 100%; }
+  .flow .hint { font-size: 14px; line-height: 20px; margin-top: 8px; }
+  .link {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 4px;
+    font-size: 16px; font-weight: 500; color: var(--text);
+    text-decoration: underline; text-decoration-color: var(--leader); text-decoration-thickness: 1px; text-underline-offset: 4px;
+    transition: text-decoration-color var(--t-fast) var(--ease);
+  }
+  .link:hover { text-decoration-color: currentColor; }
+  .link svg { width: 16px; height: 16px; color: var(--muted); flex: none; }
 
   /* ───────── Footer ───────── */
-  footer { border-top: 1px solid var(--hair); padding: 48px 0 32px; margin-top: 32px; }
-  .foot-grid { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr; gap: 40px; }
+  footer { border-top: 1px solid var(--hair); padding: 40px 0 32px; }
+  .foot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
   .foot-logo img { height: 32px; width: auto; display: block; }
   .foot-tag { color: var(--muted); font-size: 16px; margin-top: 16px; max-width: 28ch; }
   .foot-col h4 { margin: 0 0 12px; font-size: 16px; font-weight: 500; }
   .foot-col a { display: block; color: var(--muted); text-decoration: none; font-size: 16px; padding: 4px 0; transition: color var(--t-fast) var(--ease); }
   .foot-col a:hover { color: var(--text); }
-  .foot-bottom {
-    display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
-    margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--hair); color: var(--muted); font-size: 14px;
+  .foot-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--hair); color: var(--muted); font-size: 14px; }
+
+  /* ───────── Larger screens ───────── */
+  @media (min-width: 720px) {
+    :root { --nav-h: 72px; --gutter: 28px; }
+    .nav-inner { gap: 32px; }
+    .nav-logo-mark { display: none; }
+    .nav-logo { display: block; }
+    .nav-links { display: flex; gap: 32px; margin-left: auto; }
+    .nav-inner .btn { margin-left: 0; }
+    .btn-lg { width: auto; padding: 0 32px; }
+    .note { text-align: left; }
+    .flow .btn { width: auto; }
   }
 
-  /* ───────── Responsive ───────── */
-  @media (max-width: 1000px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .hero .sub { max-width: none; }
-    .hero .device { margin: 0 auto; }
-    .steps { grid-template-columns: 1fr; }
-    .foot-grid { grid-template-columns: 1fr 1fr; }
-  }
+  @media (min-width: 960px) {
+    /* Split hero: copy centred against the phone, which is cropped so the first screen ends without a gap */
+    .hero { padding-top: 32px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+    h1 { font-size: 64px; }
+    .sub { font-size: 20px; line-height: 30px; margin-top: 16px; }
+    .cta { margin-top: 32px; }
+    .shot { height: 560px; margin-top: 0; }
+    .device { width: 320px; padding: 10px; }
+    .device img { border-radius: 34px; }
 
-  @media (max-width: 720px) {
-    :root { --section-y: 24px; --nav-h: 64px; --gutter: 20px; --r-tile: 24px; --tile-pad: 24px; }
-    body { font-size: 17px; }
-    .sub { font-size: 19px; }
-    h3 { font-size: 24px; }
-    .nav-links, .nav-logo { display: none; }
-    .nav-logo-mark { display: block; }
-    .nav-inner { gap: 16px; }
-    .nav-inner .btn { margin-left: auto; }
-    .hero { padding: 16px 0 24px; }
-    .hero-actions .btn { width: 100%; }
-    .device { width: 100%; max-width: 320px; }
-    .step .btn { align-self: stretch; }
-    .foot-grid { gap: 32px; }
+    .join { padding: 16px 0 80px; }
+    .join-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+    /* Desktop visitors are the ones who need the hint, so it leads the section here */
+    .lead { display: block; }
+    .flow .hint { display: none; }
+    h2 { font-size: 36px; }
+    .flow { margin-top: 0; padding: 32px; }
+
+    .foot-grid { grid-template-columns: 1.7fr 1fr 1fr 1fr; gap: 40px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .hero-grid > div:first-child > *, .hero .device { animation-name: fade; animation-duration: 200ms; }
+    .hero-copy > *, .shot { animation: fade 200ms linear both; }
     .btn:active { transform: none; }
   }
   @media (prefers-reduced-transparency: reduce) {
     .nav { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; }
   }
   @media (prefers-contrast: more) {
-    :root { --hair: currentColor; --ring: currentColor; }
+    :root { --hair: currentColor; --ring: currentColor; --leader: currentColor; }
     .nav { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: 0 1px 0 var(--text); }
   }
 </style>
@@ -280,48 +298,59 @@ posthog.init('phc_Bkx5zXfyRfYHWXsUU7VvjPZviLVkZ6yMBNFvFYRPK2xP', {
 <!-- Hero -->
 <header class="hero">
   <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">TestFlight beta</span>
+    <div class="hero-copy">
+      <p class="kicker">TestFlight beta</p>
       <h1>Join the free Stache beta</h1>
       <p class="sub">Free on iPhone while we're in beta. Every rand, every bank, one app.</p>
-      <div class="hero-actions">
-        <a class="btn btn-accent btn-xl" href="https://testflight.apple.com/join/nb71QAQV" data-beta-join="hero">Join the beta</a>
+      <div class="cta">
+        <a class="btn btn-accent btn-lg" href="https://testflight.apple.com/join/nb71QAQV" data-beta-join="hero">Join the beta</a>
       </div>
-      <p class="hero-note">iPhone only for now. Android is next.</p>
+      <p class="note">iPhone only for now. Android is next.</p>
     </div>
 
-    <div class="device">
-      <picture>
-        <source srcset="../assets/screenshots/home-dark.png" media="(prefers-color-scheme: dark)" />
-        <img src="../assets/screenshots/home-light.png" width="1206" height="2622"
-             alt="The Stache home screen: September 2026 spend of R11 286.28 against a R15 000 budget, above a weekly spending chart." />
-      </picture>
+    <div class="shot">
+      <div class="device">
+        <picture>
+          <source srcset="../assets/screenshots/home-dark.png" media="(prefers-color-scheme: dark)" />
+          <img src="../assets/screenshots/home-light.png" width="1206" height="2622"
+               alt="The Stache home screen: September 2026 spend of R11 286.28 against a R15 000 budget, above a weekly spending chart." />
+        </picture>
+      </div>
     </div>
   </div>
 </header>
 
 <!-- Steps -->
-<section id="how">
-  <div class="wrap">
-    <h2>Three steps to get in</h2>
-    <ol class="steps">
-      <li class="step">
-        <span class="step-n" aria-hidden="true">1</span>
-        <h3>Get TestFlight</h3>
-        <p>TestFlight is Apple's free app for trying new apps before they reach the App Store.</p>
-        <a class="btn btn-quiet" href="https://apps.apple.com/app/testflight/id899247664">Get TestFlight</a>
+<section id="how" class="join">
+  <div class="wrap join-grid">
+    <div>
+      <h2>Three steps to get in</h2>
+      <p class="lead">On a computer? Open this page on your iPhone.</p>
+    </div>
+    <ol class="flow">
+      <li>
+        <span class="num" aria-hidden="true">1</span>
+        <div>
+          <h3>Get TestFlight</h3>
+          <p>Apple's free app for trying new apps before they reach the App Store.</p>
+          <a class="link" href="https://apps.apple.com/app/testflight/id899247664">Get TestFlight<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
       </li>
-      <li class="step">
-        <span class="step-n" aria-hidden="true">2</span>
-        <h3>Tap &ldquo;Join the beta&rdquo;</h3>
-        <p>TestFlight opens and adds Stache to your apps.</p>
-        <a class="btn btn-accent" href="https://testflight.apple.com/join/nb71QAQV" data-beta-join="step2">Join the beta</a>
-        <p class="step-hint">On a computer? Open this page on your iPhone.</p>
+      <li>
+        <span class="num" aria-hidden="true">2</span>
+        <div>
+          <h3>Tap &ldquo;Join the beta&rdquo;</h3>
+          <p>TestFlight opens and adds Stache to your apps.</p>
+          <a class="btn btn-accent" href="https://testflight.apple.com/join/nb71QAQV" data-beta-join="step2">Join the beta</a>
+          <p class="hint">On a computer? Open this page on your iPhone.</p>
+        </div>
       </li>
-      <li class="step">
-        <span class="step-n" aria-hidden="true">3</span>
-        <h3>Open Stache and set your budget</h3>
-        <p>Install Stache from TestFlight, open it and set up your monthly budget. New builds arrive through TestFlight as we ship them.</p>
+      <li>
+        <span class="num" aria-hidden="true">3</span>
+        <div>
+          <h3>Open Stache and set your budget</h3>
+          <p>Install it from TestFlight and set up your monthly budget. New builds arrive there as we ship them.</p>
+        </div>
       </li>
     </ol>
   </div>
@@ -351,10 +380,7 @@ posthog.init('phc_Bkx5zXfyRfYHWXsUU7VvjPZviLVkZ6yMBNFvFYRPK2xP', {
         <a href="../support.html">Support</a><a href="mailto:hello@stache.co.za">hello@stache.co.za</a>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 Stache, a service of Waxwings Holdings (Pty) Ltd.</span>
-      <span>iPhone only for now. Android is next.</span>
-    </div>
+    <div class="foot-bottom">&copy; 2026 Stache, a service of Waxwings Holdings (Pty) Ltd.</div>
   </div>
 </footer>
 
