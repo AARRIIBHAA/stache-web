@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Support — Stache</title>
-<meta name="description" content="Get help with Stache — subscriptions, your account, and receipt scanning." />
+<title>Support, Stache</title>
+<meta name="description" content="Get help with Stache. Subscriptions, your account, and receipt scanning." />
 <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0d0d16" media="(prefers-color-scheme: dark)" />
 <link rel="icon" href="./logo-icon.png" />
@@ -154,6 +154,8 @@
     display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
     margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--hair); color: var(--muted); font-size: 14px;
   }
+  .foot-bottom a { color: var(--text); text-decoration: none; }
+  .foot-bottom a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 
   /* ───────── Page shell ───────── */
@@ -247,7 +249,7 @@
       <a href="./index.html#faq">FAQ</a>
       <a href="./index.html#about">About</a>
     </div>
-    <a class="btn btn-quiet btn-mark" href="./index.html#pricing"><img src="./logo-icon.png" alt="" aria-hidden="true" />Get Stache</a>
+    <a class="btn btn-quiet btn-mark" href="/beta/"><img src="./logo-icon.png" alt="" aria-hidden="true" />Join the free beta</a>
   </div>
 </nav>
 
@@ -326,7 +328,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 Stache, a service of Waxwings Holdings (Pty) Ltd.</span>
-      <span>Coming soon to the App Store.</span>
+      <a href="/beta/">Join the free beta</a>
     </div>
   </div>
 </footer>

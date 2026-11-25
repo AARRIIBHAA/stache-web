@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Terms of Service — Stache</title>
+<title>Terms of Service, Stache</title>
 <meta name="description" content="The terms that govern your use of Stache." />
 <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0d0d16" media="(prefers-color-scheme: dark)" />
@@ -154,6 +154,8 @@
     display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
     margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--hair); color: var(--muted); font-size: 14px;
   }
+  .foot-bottom a { color: var(--text); text-decoration: none; }
+  .foot-bottom a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 
   /* ───────── Page shell ───────── */
@@ -228,7 +230,7 @@
       <a href="./index.html#faq">FAQ</a>
       <a href="./index.html#about">About</a>
     </div>
-    <a class="btn btn-quiet btn-mark" href="./index.html#pricing"><img src="./logo-icon.png" alt="" aria-hidden="true" />Get Stache</a>
+    <a class="btn btn-quiet btn-mark" href="/beta/"><img src="./logo-icon.png" alt="" aria-hidden="true" />Join the free beta</a>
   </div>
 </nav>
 
@@ -253,7 +255,7 @@
       <p>You can create an account with an email address and password, with Sign in with Apple, or with Google Sign-In. You are responsible for keeping your login credentials secure and for the activity that happens under your account.</p>
 
       <h2>Free tier</h2>
-      <p>Stache is free to use, with unlimited manual expense logging and category budgets. The following are one-off allowances rather than monthly ones — once used, they do not reset:</p>
+      <p>Stache is free to use, with unlimited manual expense logging and category budgets. The following are one-off allowances rather than monthly ones. Once used, they do not reset:</p>
       <ul>
         <li>5 receipt scans</li>
         <li>2 AI spending insights</li>
@@ -276,10 +278,10 @@
       <p>We reserve the right to suspend or terminate accounts that abuse the service, violate these Terms, or engage in fraudulent or unlawful activity.</p>
 
       <h2>Deleting your account</h2>
-      <p>You can delete your account at any time from Profile → Delete Account in the app. Deletion is immediate and permanent: your expenses, categories, budgets and profile are removed and cannot be recovered. If you want to keep a record, export a statement before deleting. Deleting your account does not by itself cancel an active Apple subscription — cancel that separately in your Apple Account settings.</p>
+      <p>You can delete your account at any time from Profile → Delete Account in the app. Deletion is immediate and permanent: your expenses, categories, budgets and profile are removed and cannot be recovered. If you want to keep a record, export a statement before deleting. Deleting your account does not by itself cancel an active Apple subscription. Cancel that separately in your Apple Account settings.</p>
 
       <h2>Disclaimer and limitation of liability</h2>
-      <p>Stache is provided "as is" and "as available", without warranties of any kind, whether express or implied. Stache is a tool to help you track and understand your spending — it is not a financial institution and does not provide financial, tax, or investment advice.</p>
+      <p>Stache is provided "as is" and "as available", without warranties of any kind, whether express or implied. Stache is a tool to help you track and understand your spending. It is not a financial institution and does not provide financial, tax, or investment advice.</p>
 
       <p>Some features of Stache use artificial intelligence, including receipt scanning and spending insights. AI-generated output may be incomplete or inaccurate: receipts may be misread, expenses may be miscategorised, and insights may contain errors. You are responsible for reviewing the accuracy of your recorded expenses and for verifying your financial records independently against your own bank and card statements.</p>
 
@@ -325,7 +327,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 Stache, a service of Waxwings Holdings (Pty) Ltd.</span>
-      <span>Coming soon to the App Store.</span>
+      <a href="/beta/">Join the free beta</a>
     </div>
   </div>
 </footer>

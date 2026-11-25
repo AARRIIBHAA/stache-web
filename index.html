@@ -304,6 +304,8 @@
     display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
     margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--hair); color: var(--muted); font-size: 14px;
   }
+  .foot-bottom a { color: var(--text); text-decoration: none; }
+  .foot-bottom a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
   /* ───────── Responsive ───────── */
   @media (max-width: 1000px) {
@@ -377,7 +379,7 @@
       <a href="#faq">FAQ</a>
       <a href="#about">About</a>
     </div>
-    <a class="btn btn-quiet btn-mark" href="#pricing"><img src="./logo-icon.png" alt="" aria-hidden="true" />Get Stache</a>
+    <a class="btn btn-quiet btn-mark" href="/beta/"><img src="./logo-icon.png" alt="" aria-hidden="true" />Join the free beta</a>
   </div>
 </nav>
 
@@ -388,10 +390,10 @@
       <h1>Your receipts have been living in your jacket pocket. <span class="h1-accent">Not anymore</span></h1>
       <p class="sub">Stache logs every rand you spend, across every bank and card you use. Snap a receipt or type it in ten seconds. One clean ledger, and no more guessing where it all went.</p>
       <div class="hero-actions">
-        <a class="btn btn-accent btn-lg" href="#pricing">Get Stache</a>
+        <a class="btn btn-accent btn-lg" href="/beta/">Join the free beta</a>
         <a class="btn btn-quiet btn-lg" href="#how">See how it works</a>
       </div>
-      <p class="hero-note">Coming soon to the App Store. Built in South Africa, in rands.</p>
+      <p class="hero-note">Free iPhone beta, open now. Built in South Africa, in rands.</p>
     </div>
 
     <div class="device">
@@ -544,7 +546,7 @@
         </ul>
       </div>
 
-      <a class="btn btn-accent btn-lg" href="#faq">Get Stache Premium</a>
+      <a class="btn btn-accent btn-lg" href="/beta/">Join the free beta</a>
     </div>
 
     <p class="price-free">There's a <b>Free</b> plan too: five receipt scans, two AI insights and one statement, at no cost and with no card.</p>
@@ -617,7 +619,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 Stache, a service of Waxwings Holdings (Pty) Ltd.</span>
-      <span>Coming soon to the App Store.</span>
+      <a href="/beta/">Join the free beta</a>
     </div>
   </div>
 </footer>

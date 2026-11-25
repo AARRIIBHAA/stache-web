@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Privacy Policy — Stache</title>
+<title>Privacy Policy, Stache</title>
 <meta name="description" content="How Stache collects, stores, and protects your personal information." />
 <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0d0d16" media="(prefers-color-scheme: dark)" />
@@ -154,6 +154,8 @@
     display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
     margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--hair); color: var(--muted); font-size: 14px;
   }
+  .foot-bottom a { color: var(--text); text-decoration: none; }
+  .foot-bottom a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 
   /* ───────── Page shell ───────── */
@@ -228,7 +230,7 @@
       <a href="./index.html#faq">FAQ</a>
       <a href="./index.html#about">About</a>
     </div>
-    <a class="btn btn-quiet btn-mark" href="./index.html#pricing"><img src="./logo-icon.png" alt="" aria-hidden="true" />Get Stache</a>
+    <a class="btn btn-quiet btn-mark" href="/beta/"><img src="./logo-icon.png" alt="" aria-hidden="true" />Join the free beta</a>
   </div>
 </nav>
 
@@ -251,7 +253,7 @@
       </ul>
       <p>Financial information you enter:</p>
       <ul>
-        <li>Expenses you log — amount, merchant, category, date, and an optional note</li>
+        <li>Expenses you log. Amount, merchant, category, date, and an optional note</li>
         <li>Categories you create and the budget you set for each</li>
         <li>Your monthly budget, optional monthly income, and preferred display currency</li>
       </ul>
@@ -275,19 +277,19 @@
       <p>The data listed above under account, financial and usage information is stored using Supabase, a cloud infrastructure provider, in data centres located in the EU (Frankfurt, Germany). Data is encrypted in transit and at rest, and access is restricted to your own account by database-level security rules.</p>
 
       <h2>Third parties we share data with</h2>
-      <p><strong>Google Gemini API</strong> — when you scan a receipt, the image is sent through our server to Google's Gemini API, a paid service, only to read the receipt and fill in the expense: the shop, total, date and category. We don't store receipt images on our servers. When you request an AI insight, a summary of your spending is sent the same way: your total spent, your budget, and per-category totals in rands. Individual transactions, merchant names and notes are not included in insight requests. Under Google's terms for paid API services, Google does not use this content to improve its products.</p>
+      <p><strong>Google Gemini API</strong>. When you scan a receipt, the image is sent through our server to Google's Gemini API, a paid service, only to read the receipt and fill in the expense: the shop, total, date and category. We don't store receipt images on our servers. When you request an AI insight, a summary of your spending is sent the same way: your total spent, your budget, and per-category totals in rands. Individual transactions, merchant names and notes are not included in insight requests. Under Google's terms for paid API services, Google does not use this content to improve its products.</p>
 
-      <p id="analytics"><strong>PostHog</strong> — we use PostHog for product analytics, to understand which features are used and where people get stuck. PostHog processes this data on servers in the United States. PostHog records your approximate location (city and country), worked out from your IP address, to help us understand where Stache is used. The only identifier attached to an event is your Stache account ID: no name, email address, merchant, note text or monetary amount is ever included. Events record actions and categories only, such as that an expense was added and which category it used, that a paywall was shown, or that a purchase completed. Session recording is disabled, and automatic capture of taps and screen views is disabled.</p>
+      <p id="analytics"><strong>PostHog</strong>. We use PostHog for product analytics, to understand which features are used and where people get stuck. PostHog processes this data on servers in the United States. PostHog records your approximate location (city and country), worked out from your IP address, to help us understand where Stache is used. The only identifier attached to an event is your Stache account ID: no name, email address, merchant, note text or monetary amount is ever included. Events record actions and categories only, such as that an expense was added and which category it used, that a paywall was shown, or that a purchase completed. Session recording is disabled, and automatic capture of taps and screen views is disabled.</p>
 
-      <p id="crash-reports"><strong>Sentry</strong> (Functional Software, Inc.) — we use Sentry for crash and error reporting. When the app crashes or hits an error, we send a technical report so we can find and fix the bug: your device model, iOS version and app version, the error itself and where in the code it happened, and a random account ID. Reports do not include your expenses, amounts, merchants, receipt photos, name or email address, and we have turned off IP address storage. Sentry stores this data in its EU region.</p>
+      <p id="crash-reports"><strong>Sentry</strong> (Functional Software, Inc.). We use Sentry for crash and error reporting. When the app crashes or hits an error, we send a technical report so we can find and fix the bug: your device model, iOS version and app version, the error itself and where in the code it happened, and a random account ID. Reports do not include your expenses, amounts, merchants, receipt photos, name or email address, and we have turned off IP address storage. Sentry stores this data in its EU region.</p>
 
-      <p><strong>RevenueCat</strong> — we use RevenueCat to manage Stache Premium subscriptions. RevenueCat receives your purchase and subscription status, identified only by your Stache account ID. We do not send your name or email address to RevenueCat. Your payment card details are handled entirely by Apple and are never shared with RevenueCat or with us.</p>
+      <p><strong>RevenueCat</strong>. We use RevenueCat to manage Stache Premium subscriptions. RevenueCat receives your purchase and subscription status, identified only by your Stache account ID. We do not send your name or email address to RevenueCat. Your payment card details are handled entirely by Apple and are never shared with RevenueCat or with us.</p>
 
-      <p><strong>Apple</strong> — Apple processes all payments for Stache Premium. If you use Sign in with Apple, Apple provides your name and email address, and you may choose to hide your real address behind Apple's private relay service, in which case we never see it.</p>
+      <p><strong>Apple</strong>. Apple processes all payments for Stache Premium. If you use Sign in with Apple, Apple provides your name and email address, and you may choose to hide your real address behind Apple's private relay service, in which case we never see it.</p>
 
-      <p><strong>Google Sign-In</strong> — if you sign in with Google, Google provides your name and email address to create your account.</p>
+      <p><strong>Google Sign-In</strong>. If you sign in with Google, Google provides your name and email address to create your account.</p>
 
-      <p><strong>Resend</strong> — we use Resend to send account emails: the 6-digit code that confirms your email address when you sign up, and the code that lets you reset your password. Resend receives your email address and the content of those emails, and nothing else about you.</p>
+      <p><strong>Resend</strong>. We use Resend to send account emails: the 6-digit code that confirms your email address when you sign up, and the code that lets you reset your password. Resend receives your email address and the content of those emails, and nothing else about you.</p>
 
       <h2>Subscription data</h2>
       <p>Payment processing for Stache Premium is handled entirely by Apple. We do not receive, process, or store your payment card details or any other payment information. We store only whether your subscription is currently active.</p>
@@ -339,7 +341,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 Stache, a service of Waxwings Holdings (Pty) Ltd.</span>
-      <span>Coming soon to the App Store.</span>
+      <a href="/beta/">Join the free beta</a>
     </div>
   </div>
 </footer>
