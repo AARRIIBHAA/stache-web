@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Stache</title>
-<meta name="description" content="Stache logs every rand you spend, across every bank and card you use. Snap a receipt or type it in ten seconds. One clean ledger, and no more guessing where it all went. Built for South Africa." />
+<title>Stache: Expense Tracker &amp; Receipt Scanner for South Africa</title>
+<meta name="description" content="Track every rand across every bank, card and cash. Snap a till slip or type it in 10 seconds. No bank logins. Free iPhone beta, built in South Africa." />
 <link rel="canonical" href="https://stache.co.za/" />
 <link rel="icon" href="./logo-icon.png" />
 <link rel="apple-touch-icon" href="./logo-icon.png" />
@@ -14,12 +14,14 @@
 <meta property="og:title" content="Stache: one clean ledger for every rand you spend" />
 <meta property="og:description" content="Snap a receipt or type it in ten seconds. Stache sorts every expense across every bank and card into one clean ledger." />
 <meta property="og:url" content="https://stache.co.za/" />
-<meta property="og:image" content="https://stache.co.za/logo-full.png" />
+<meta property="og:image" content="https://stache.co.za/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Stache: one clean ledger for every rand you spend" />
 <meta name="twitter:description" content="Snap a receipt or type it in ten seconds. Stache sorts every expense across every bank and card into one clean ledger." />
-<meta name="twitter:image" content="https://stache.co.za/logo-full.png" />
+<meta name="twitter:image" content="https://stache.co.za/og-image.png" />
 
 <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0d0d16" media="(prefers-color-scheme: dark)" />
@@ -380,17 +382,43 @@ posthog.init('phc_Bkx5zXfyRfYHWXsUU7VvjPZviLVkZ6yMBNFvFYRPK2xP', {
   person_profiles: 'identified_only'
 });
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://stache.co.za/#org",
+      "name": "Stache",
+      "legalName": "Waxwings Holdings (Pty) Ltd",
+      "url": "https://stache.co.za/",
+      "logo": "https://stache.co.za/logo-icon.png",
+      "email": "hello@stache.co.za"
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "Stache",
+      "operatingSystem": "iOS",
+      "applicationCategory": "FinanceApplication",
+      "description": "Expense tracker and receipt scanner for South Africa. Log spending across every bank, card and cash, with category budgets and AI insights. No bank logins.",
+      "url": "https://stache.co.za/",
+      "publisher": { "@id": "https://stache.co.za/#org" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ZAR" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- Nav -->
 <nav class="nav">
   <div class="wrap nav-inner">
-    <a class="nav-logo" href="./index.html" aria-label="Stache home"><picture>
+    <a class="nav-logo" href="/" aria-label="Stache home"><picture>
         <source srcset="./logo-full-dark.png" media="(prefers-color-scheme: dark)" />
         <img src="./logo-full.png" alt="Stache" />
       </picture></a>
-    <a class="nav-logo-mark" href="./index.html" aria-label="Stache home"><img src="./logo-icon.png" alt="Stache" /></a>
+    <a class="nav-logo-mark" href="/" aria-label="Stache home"><img src="./logo-icon.png" alt="Stache" /></a>
     <div class="nav-links">
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
@@ -416,7 +444,9 @@ posthog.init('phc_Bkx5zXfyRfYHWXsUU7VvjPZviLVkZ6yMBNFvFYRPK2xP', {
 
     <div class="device">
       <picture>
+        <source srcset="./assets/screenshots/home-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
         <source srcset="./assets/screenshots/home-dark.png" media="(prefers-color-scheme: dark)" />
+        <source srcset="./assets/screenshots/home-light.webp" type="image/webp" />
         <img src="./assets/screenshots/home-light.png" width="1206" height="2622"
              alt="The Stache home screen: September 2026 spend of R11 286.28 against a R15 000 budget, above a weekly spending chart." />
       </picture>
@@ -469,7 +499,9 @@ posthog.init('phc_Bkx5zXfyRfYHWXsUU7VvjPZviLVkZ6yMBNFvFYRPK2xP', {
       </div>
       <div class="device">
         <picture>
+          <source srcset="./assets/screenshots/add-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
           <source srcset="./assets/screenshots/add-dark.png" media="(prefers-color-scheme: dark)" />
+          <source srcset="./assets/screenshots/add-light.webp" type="image/webp" />
           <img src="./assets/screenshots/add-light.png" width="1206" height="2622" loading="lazy" alt="The Stache new-expense screen, with camera, gallery and upload options for capturing a till slip." />
         </picture>
       </div>
@@ -482,7 +514,9 @@ posthog.init('phc_Bkx5zXfyRfYHWXsUU7VvjPZviLVkZ6yMBNFvFYRPK2xP', {
       </div>
       <div class="shot">
         <picture>
+          <source srcset="./assets/screenshots/budgets-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
           <source srcset="./assets/screenshots/budgets-dark.png" media="(prefers-color-scheme: dark)" />
+          <source srcset="./assets/screenshots/budgets-light.webp" type="image/webp" />
           <img src="./assets/screenshots/budgets-light.png" width="1126" height="830" loading="lazy" alt="Category budgets: Food at 88% used shown amber, Transport at 59% green, Shopping at 108% red." />
         </picture>
       </div>
@@ -495,7 +529,9 @@ posthog.init('phc_Bkx5zXfyRfYHWXsUU7VvjPZviLVkZ6yMBNFvFYRPK2xP', {
       </div>
       <div class="device">
         <picture>
+          <source srcset="./assets/screenshots/receipts-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
           <source srcset="./assets/screenshots/receipts-dark.png" media="(prefers-color-scheme: dark)" />
+          <source srcset="./assets/screenshots/receipts-light.webp" type="image/webp" />
           <img src="./assets/screenshots/receipts-light.png" width="1206" height="2622" loading="lazy" alt="The Stache receipts ledger: a searchable list of logged expenses grouped by date." />
         </picture>
       </div>
@@ -508,7 +544,9 @@ posthog.init('phc_Bkx5zXfyRfYHWXsUU7VvjPZviLVkZ6yMBNFvFYRPK2xP', {
       </div>
       <div class="device">
         <picture>
+          <source srcset="./assets/screenshots/insights-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
           <source srcset="./assets/screenshots/insights-dark.png" media="(prefers-color-scheme: dark)" />
+          <source srcset="./assets/screenshots/insights-light.webp" type="image/webp" />
           <img src="./assets/screenshots/insights-light.png" width="1206" height="2622" loading="lazy" alt="The Stache Insights screen: September 2026 spent R11 286.28, R3 713.72 remaining, 75% used, a prompt to upgrade to Premium for unlimited AI insights, and spending by category." />
         </picture>
       </div>
